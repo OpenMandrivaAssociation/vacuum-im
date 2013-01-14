@@ -1,0 +1,21 @@
+diff -urN vacuum-1.2.1/src/utils/CMakeLists.txt vacuum-1.2.1-patched/src/utils/CMakeLists.txt
+--- vacuum-1.2.1/src/utils/CMakeLists.txt	2012-02-10 02:29:20.000000000 +1100
++++ vacuum-1.2.1-patched/src/utils/CMakeLists.txt	2013-01-14 21:00:36.308437081 +1100
+@@ -43,7 +43,7 @@
+ if (SYSTEM_MINIZIP_FOUND)
+ 	list(APPEND ADD_LIBS "${SYSTEM_MINIZIP_FOUND}")
+ else (SYSTEM_MINIZIP_FOUND)
+-	list(APPEND ADD_LIBS minizip)
++	list(APPEND ADD_LIBS minizip ${SYSTEM_ZLIB_FOUND})
+ endif (SYSTEM_MINIZIP_FOUND)
+ 
+ 
+@@ -59,7 +59,7 @@
+ endif (APPLE)
+ 
+ target_link_libraries(${TARGET_UTILS} LINK_INTERFACE_LIBRARIES ${QT_LIBRARIES})
+-target_link_libraries(${TARGET_UTILS} ${QT_LIBRARIES} ${ADD_LIBS})
++target_link_libraries(${TARGET_UTILS} ${QT_LIBRARIES} ${ADD_LIBS} ${X11_LIBRARIES})
+ 
+ if (WIN32)
+ 	set_target_properties(${TARGET_UTILS} PROPERTIES RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}")
