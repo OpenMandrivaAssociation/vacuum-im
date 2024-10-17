@@ -10,7 +10,7 @@ Version:	1.2.1
 Release:	2
 License:	GPLv3+
 Group:		Networking/Instant messaging
-Url:		http://www.vacuum-im.org/
+Url:		https://www.vacuum-im.org/
 Source:		http://vacuum-im.googlecode.com/files/%{sname}-%{version}.tar.xz
 Patch0:		vacuum-1.2.1-linkage.patch
 BuildRequires:	cmake >= 2.8
